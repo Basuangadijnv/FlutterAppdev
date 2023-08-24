@@ -24,4 +24,5 @@ void main() {
   //we can also replace null by some other value if it is null
   print(a?.length ?? 0);
   print(a?.length ?? 'it does not have any string');
+  print('a=${a ?? 'it is a null'}');
 }
