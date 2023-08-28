@@ -1,5 +1,6 @@
-//note: dart does not support overloadin in functions as it is dynamically typed language
+//note: dart does not support overloading in functions as it is dynamically typed language
 //note: overriding is possible in dart
+//cunstructer is while object creation
 class Cookie {
   double? size;
   String shape;

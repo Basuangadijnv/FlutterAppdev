@@ -1,3 +1,5 @@
+//the funtion is defined immediately when necessary as (parameters){statements;};
+//it can be returned,assigned or passed once defined immediately
 Function fun1() {
   return () {
     print('yhooo');
