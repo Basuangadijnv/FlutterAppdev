@@ -13,6 +13,6 @@ Learning the Dart and flutter basics
 <h2>
   Learn to use stateful widget, widgets such as TextButton, TextField etc., 
   <br>
-  Using the external file math_expressions
+  Using the external Package math_expressions
 <h2>
 
