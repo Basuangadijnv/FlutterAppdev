@@ -1,4 +1,4 @@
-# currencycoverter
+# Calculatot
 
 A new Flutter project.
 
