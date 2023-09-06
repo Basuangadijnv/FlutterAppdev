@@ -1,4 +1,4 @@
-# Calculatot
+# Calculator
 
 A new Flutter project.
 
