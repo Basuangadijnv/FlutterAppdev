@@ -1,18 +1,23 @@
-# <p style:color='blue'>FlutterAppdev<p>
+# <p style="color: blue;">FlutterAppdev</p>
 Learning the Dart and flutter basics
-# Project on Calculator and Currency Converter
+
+# <p style="color:Pink;"> Project on Calculator and Currency Converter</p>
+
 <br>
 
 # Currency Converter
 <h2>
-  Getting started with flutter using some widgets.
+  <p style="color:chartreuse;">   Getting started with flutter using some widgets. </p>
+
 <h2>
   <br>
 
 # Caluclator-> 
 <h2>
-  Learn to use stateful widget, widgets such as TextButton, TextField etc., 
+  <p style="color:chartreuse;">  Learn to use stateful widget, widgets such as TextButton, TextField etc., </p>
+   
   <br>
-  Using the external Package math_expressions
+  <p style="color:chartreuse;">  Using the external Package math_expressions</p>
+ 
 <h2>
 
