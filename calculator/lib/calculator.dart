@@ -16,7 +16,11 @@ class _Calculator extends State<Calculator> {
     return TextButton(
       onPressed: () {
         if (s == 'x') {
-          text.text = text.text.substring(0, text.text.length - 1);
+          if (text.text.isNotEmpty) {
+            text.text = text.text.substring(0, text.text.length - 1);
+          }
+        } else if (s == '.') {
+          dot();
         } else {
           text.text = '${text.text}$s';
         }
@@ -26,7 +30,6 @@ class _Calculator extends State<Calculator> {
       style: TextButton.styleFrom(
         elevation: 1,
         shadowColor: Colors.black12,
-        minimumSize: const Size(100, 10),
         backgroundColor: Colors.white,
       ),
       child: Text(
@@ -41,6 +44,9 @@ class _Calculator extends State<Calculator> {
   }
 
   void dot() {
+    if (text.text.isEmpty) {
+      text.text = '0';
+    }
     text.text = '${text.text}.';
     setState(() {});
   }
@@ -107,21 +113,18 @@ class _Calculator extends State<Calculator> {
     }
     eq = eq.replaceAll('X', '*');
     Parser p = Parser();
-    Expression e = p.parse(eq);
+    Expression e;
+    try {
+      p.parse(eq);
+    } catch (e) {
+      text.text = text.text.substring(0, text.text.length - 1);
+      eq = text.text;
+    } finally {
+      e = p.parse(eq);
+    }
     double eval = e.evaluate(EvaluationType.REAL, ContextModel());
     String ans = eval.toString();
     return ans;
-    // var numlist = eq.split(RegExp(r'[+,-,/,X,-]'));
-    // var oplist = eq.split(RegExp('(\\d+)'));
-    // List infixexp = <String>[];
-    // for (int i = 0; i < numlist.length; i++) {
-    //   infixexp.add(oplist[i]);
-    //   infixexp.add(numlist[i]);
-    // }
-
-    // infixexp.removeAt(0);
-
-    // print(infixexp);
   }
 
   void sub() {
@@ -144,7 +147,7 @@ class _Calculator extends State<Calculator> {
               padding: const EdgeInsets.fromLTRB(5, 100, 5, 5),
               child: TextField(
                 readOnly: true,
-                textDirection: TextDirection.ltr,
+                textDirection: TextDirection.rtl,
                 controller: ans,
                 keyboardType: const TextInputType.numberWithOptions(
                   decimal: true,
@@ -285,14 +288,13 @@ class _Calculator extends State<Calculator> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   for (int j = 0; j < 3; j++, i++) ...{
-                    Container(
-                      padding: const EdgeInsets.all(2),
+                    Expanded(
                       child: numericbutton('${num[i]}'),
                     ),
                   }
                 ],
               ),
-            }
+            },
           ],
         ),
       ),
